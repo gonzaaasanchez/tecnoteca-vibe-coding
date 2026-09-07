@@ -1,6 +1,31 @@
 # Vibe Coding: de la Idea al Producto Digital con IA
 
-En este trayecto, desarrollado en alianza con Ecloud Agency y Vercel, los/as participantes aprenden a crear productos digitales desde cero utilizando herramientas de inteligencia artificial.
+Trayecto de 8 clases desarrollado en alianza con **eCloud Agency** y **Vercel** para **Tecnoteca Rosario**. Los/as participantes aprenden a crear productos digitales desde cero utilizando inteligencia artificial como compañera de desarrollo.
+
+## Slides del curso
+
+Este repo contiene los slide decks (HTML autocontenido, sin build) de cada clase. Ver [`index.html`](index.html) para la landing con el listado completo, o entrar directo a cada clase:
+
+1. [De la necesidad a la Idea](clases/clase-1.html)
+2. [De la Especificación al Diseño](clases/clase-2.html)
+3. [Base de datos y APIs](clases/clase-3.html)
+4. [Guardando Información](clases/clase-4.html)
+5. [Roles y Panel Administrador](clases/clase-5.html)
+6. [De Producto Inicial a Producto Vivo](clases/clase-6.html)
+7. [Demo Day (clases 7 y 8)](clases/clase-7.html)
+
+> Nota: el programa original divide el Demo Day en clases 7 y 8, pero ambas se cubren en un único slide deck (`clases/clase-7.html`).
+
+## Previsualizar localmente
+
+```bash
+# Abrir la landing directamente
+open index.html
+
+# O servir con Python para evitar problemas de fuentes/rutas
+python3 -m http.server 8000
+# luego visitar http://localhost:8000
+```
 
 ## ¿Qué es el Vibe Coding?
 
