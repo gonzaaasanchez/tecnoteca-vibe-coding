@@ -315,22 +315,20 @@
   .grid-4 .card:nth-child(3), .grid-3 .card:nth-child(3) { transition-delay:.4s; }
   .grid-4 .card:nth-child(4) { transition-delay:.5s; }
 
-  /* ─── MATRIX 2x2 ─── */
-  .matrix-wrap { display: flex; flex-direction: column; gap: 6px; width: 100%; }
-  .matrix-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 10px; width: 100%; }
-  .matrix-quad {
-    border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px;
-    background: var(--bg-panel);
-    opacity: 0; transform: translateY(10px); transition: all 0.45s;
-  }
-  .slide.active .matrix-quad { opacity: 1; transform: none; }
-  .matrix-quad:nth-child(1) { transition-delay: .2s; }
-  .matrix-quad:nth-child(2) { transition-delay: .3s; }
-  .matrix-quad:nth-child(3) { transition-delay: .4s; }
-  .matrix-quad:nth-child(4) { transition-delay: .5s; }
-  .matrix-quad .mq-tag { font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 3px; }
-  .matrix-quad .mq-label { font-size: 11px; color: var(--text-muted); }
-  .matrix-axis { font-size: 11px; color: var(--text-muted); text-align: right; font-weight: 600; }
+  /* ─── GRID 5 ─── */
+  .grid-5 { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; width: 100%; }
+  .grid-5 .card { opacity:0; transform:translateY(12px); transition:all .45s; }
+  .slide.active .grid-5 .card { opacity:1; transform:none; }
+  .grid-5 .card:nth-child(5) { transition-delay:.6s; }
+
+  /* ─── PERMISSIONS TABLE ─── */
+  .perm-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .perm-table th { font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; text-align: center; padding: 0 6px 6px; }
+  .perm-table th:first-child { text-align: left; padding-left: 0; }
+  .perm-table td { padding: 6px; text-align: center; color: var(--text-secondary); border-top: 1px solid var(--border); }
+  .perm-table td:first-child { text-align: left; padding-left: 0; color: var(--text-primary); font-weight: 600; white-space: nowrap; }
+  .perm-table td.off { color: var(--text-muted); font-style: italic; }
+  .perm-legend { font-size: 11px; color: var(--text-muted); margin-top: 8px; }
 
   /* ─── BULLET LIST ─── */
   .bullet-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
@@ -376,7 +374,6 @@
 <div id="progress-bar"></div>
 
 <div id="stage">
-
   <!-- ══════════════════════════
        SLIDE 1 — PORTADA
   ══════════════════════════ -->
@@ -390,20 +387,21 @@
       <div class="bg-glow" style="width:300px;height:250px;background:rgba(62,207,142,0.05);bottom:-40px;right:0;"></div>
 
       <div class="eyebrow">Tecnoteca Rosario · Fase: Técnica y Resiliencia</div>
-      <h1 class="title">Guardando<br><span class="highlight">Información</span></h1>
+      <h1 class="title">Panel Admin<br><span class="highlight">&amp; Tips</span></h1>
       <div class="divider" style="width:80px;margin:20px 0;background:linear-gradient(90deg,var(--accent-green),transparent);opacity:1;"></div>
       <div class="meta-row">
         <div class="meta-chip"><span>📚</span> Clase 4</div>
         <div class="meta-chip"><span>⏱</span> 2 horas</div>
         <div class="meta-chip"><span>👥</span> Grupos de 4 a 5 personas</div>
         <div class="meta-chip"><span>💻</span> Una computadora por grupo</div>
-        <div class="meta-chip accent"><span>🗄️</span> <strong>Entregable: Aplicación funcional con base de datos</strong></div>
+        <div class="meta-chip accent"><span>🛡️</span> <strong>Entregable: Panel admin, para quienes todavía no lo crearon</strong></div>
+        <div class="meta-chip accent"><span>🧩</span> <strong>Si ya lo tienen: seguir sumando módulos al panel</strong></div>
       </div>
     </div>
   </div>
 
   <!-- ══════════════════════════
-       SLIDE 2 — BLOQUE 1: Por qué guardar datos
+       SLIDE 2 — BLOQUE 1: CRUDL
   ══════════════════════════ -->
   <div class="slide" data-index="1">
     <div class="top-bar">
@@ -413,49 +411,11 @@
     <div class="slide-body">
       <div class="bloque-header">
         <span class="bloque-tag">Bloque 1</span>
-        <span class="bloque-time">15 minutos</span>
+        <span class="bloque-time">10 minutos</span>
       </div>
-      <h2 class="section-title">¿Por qué necesitamos <span style="color:var(--accent-green)">guardar datos</span>?</h2>
-      <div class="two-col" style="align-items:start;gap:20px">
-        <div style="display:flex;flex-direction:column;gap:12px">
-          <div class="card">
-            <div class="card-title">❌ El problema</div>
-            <p>El usuario completa un formulario, cierra la app y vuelve a abrirla. <strong style="color:var(--text-primary)">Todo desapareció.</strong></p>
-          </div>
-          <div class="card" style="border-color:rgba(62,207,142,0.2)">
-            <div class="card-title green">💡 La analogía</div>
-            <p>Una base de datos es como <strong style="color:var(--text-primary)">una hoja de cálculo</strong> que la app puede leer y escribir sola.</p>
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:12px">
-          <div class="card" style="border-color:rgba(34,211,238,0.2)">
-            <div class="card-title">📊 Vercel Postgres</div>
-            <p>Ideal para guardar información estructurada con relaciones. Por ejemplo: <strong style="color:var(--text-primary)">usuarios, pedidos, productos.</strong></p>
-          </div>
-          <div class="card" style="border-color:rgba(251,191,36,0.2)">
-            <div class="card-title amber">🗝️ Vercel KV</div>
-            <p>Ideal para guardar datos simples y rápidos. Por ejemplo: <strong style="color:var(--text-primary)">preferencias, sesiones, configuraciones.</strong></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════
-       SLIDE 3 — BLOQUE 3: Las 4 operaciones básicas
-  ══════════════════════════ -->
-  <div class="slide" data-index="2">
-    <div class="top-bar">
-      <a class="logo" href="../index.html">eCloud · Tecnoteca Rosario</a>
-      <span class="badge">Clase 4</span>
-    </div>
-    <div class="slide-body">
-      <div class="bloque-header">
-        <span class="bloque-tag">Bloque 3</span>
-        <span class="bloque-time">45 minutos</span>
-      </div>
-      <h2 class="section-title">Las 4 operaciones <span style="color:var(--accent-green)">básicas</span></h2>
-      <div class="grid-4">
+      <h2 class="section-title" style="margin-bottom:10px">Las 5 operaciones: <span style="color:var(--accent-green)">CRUDL</span></h2>
+      <p class="subtitle" style="margin-bottom:18px">Todo lo que se hace en un panel admin es alguna de estas cinco.</p>
+      <div class="grid-5">
         <div class="card" style="text-align:center;border-color:rgba(62,207,142,0.25);background:rgba(62,207,142,0.05)">
           <div style="font-size:26px;margin-bottom:6px">➕</div>
           <div class="card-title green" style="margin-bottom:4px">Crear</div>
@@ -465,93 +425,187 @@
         <div class="card" style="text-align:center;border-color:rgba(34,211,238,0.25);background:rgba(34,211,238,0.05)">
           <div style="font-size:26px;margin-bottom:6px">👁️</div>
           <div class="card-title" style="margin-bottom:4px">Leer</div>
-          <p style="margin-bottom:8px">Ver la lista de contactos guardados</p>
-          <code style="font-size:11px;color:var(--accent-teal);background:var(--code-bg);padding:2px 6px;border-radius:4px">SELECT</code>
+          <p style="margin-bottom:8px">Abrir un contacto y ver su detalle</p>
+          <code style="font-size:11px;color:var(--accent-teal);background:var(--code-bg);padding:2px 6px;border-radius:4px">SELECT … WHERE</code>
         </div>
-        <div class="card" style="text-align:center">
+        <div class="card" style="text-align:center;border-color:rgba(62,207,142,0.25);background:rgba(62,207,142,0.05)">
           <div style="font-size:26px;margin-bottom:6px">✏️</div>
-          <div class="card-title" style="color:var(--text-muted);margin-bottom:4px">Actualizar</div>
+          <div class="card-title green" style="margin-bottom:4px">Actualizar</div>
           <p style="margin-bottom:8px">Editar el número de un contacto</p>
-          <code style="font-size:11px;color:var(--text-muted);background:var(--code-bg);padding:2px 6px;border-radius:4px">UPDATE</code>
+          <code style="font-size:11px;color:var(--accent-green);background:var(--code-bg);padding:2px 6px;border-radius:4px">UPDATE</code>
         </div>
-        <div class="card" style="text-align:center">
+        <div class="card" style="text-align:center;border-color:rgba(62,207,142,0.25);background:rgba(62,207,142,0.05)">
           <div style="font-size:26px;margin-bottom:6px">🗑️</div>
-          <div class="card-title" style="color:var(--text-muted);margin-bottom:4px">Borrar</div>
+          <div class="card-title green" style="margin-bottom:4px">Borrar</div>
           <p style="margin-bottom:8px">Eliminar un contacto que ya no usás</p>
-          <code style="font-size:11px;color:var(--text-muted);background:var(--code-bg);padding:2px 6px;border-radius:4px">DELETE</code>
+          <code style="font-size:11px;color:var(--accent-green);background:var(--code-bg);padding:2px 6px;border-radius:4px">DELETE</code>
+        </div>
+        <div class="card" style="text-align:center;border-color:rgba(34,211,238,0.25);background:rgba(34,211,238,0.05)">
+          <div style="font-size:26px;margin-bottom:6px">📋</div>
+          <div class="card-title" style="margin-bottom:4px">Listar</div>
+          <p style="margin-bottom:8px">Ver la lista de todos tus contactos</p>
+          <code style="font-size:11px;color:var(--accent-teal);background:var(--code-bg);padding:2px 6px;border-radius:4px">SELECT *</code>
         </div>
       </div>
       <div class="meta-row" style="margin-top:16px">
-        <div class="meta-chip accent"><span>✅</span> <strong>Para hoy alcanza con implementar Crear y Leer</strong></div>
+        <div class="meta-chip accent"><span>🛡️</span> <strong>No todos pueden hacer las 5: cada rol tiene permiso para algunas</strong></div>
       </div>
     </div>
   </div>
 
   <!-- ══════════════════════════
-       SLIDE 4 — BLOQUE 4: Qué hacemos primero
+       SLIDE 3 — BLOQUE 2: Roles y panel administrador
+  ══════════════════════════ -->
+  <div class="slide" data-index="2">
+    <div class="top-bar">
+      <a class="logo" href="../index.html">eCloud · Tecnoteca Rosario</a>
+      <span class="badge">Manos a la obra</span>
+    </div>
+    <div class="slide-body" style="padding:22px 56px">
+      <div class="bloque-header">
+        <span class="bloque-tag">Bloque 2</span>
+        <span class="bloque-time">55 minutos</span>
+      </div>
+      <h2 class="section-title" style="margin-bottom:12px">Roles y <span style="color:var(--accent-green)">panel administrador</span></h2>
+      <div class="two-col" style="align-items:start;gap:20px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div class="card" style="padding:12px 18px">
+            <div class="card-title" style="margin-bottom:6px">🛡️ No todos los admins ven lo mismo</div>
+            <table class="perm-table">
+              <tr><th>Rol</th><th>Productos</th><th>Pedidos</th><th>Usuarios</th></tr>
+              <tr><td>Admin</td><td>✏️</td><td>✏️</td><td>✏️</td></tr>
+              <tr><td>Encargado</td><td>✏️</td><td>✏️</td><td>🚫</td></tr>
+              <tr><td>Empleado</td><td>👁️</td><td>✏️</td><td>🚫</td></tr>
+              <tr><td>Usuario</td><td colspan="3" class="off">No entra al panel</td></tr>
+            </table>
+            <div class="perm-legend">✏️ ve y edita · 👁️ solo ve · 🚫 el módulo no le aparece</div>
+          </div>
+          <div class="card" style="padding:12px 18px;border-color:rgba(62,207,142,0.2)">
+            <div class="card-title green" style="margin-bottom:4px">✅ Cómo verificar</div>
+            <p>Entrar con una cuenta de cada rol: lo que no le corresponde <strong style="color:var(--text-primary)">no aparece y tampoco se puede hacer</strong>. El primer admin se marca a mano en Supabase, en el campo "rol".</p>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div>
+            <div class="prompt-label">📋 ¿No tienen panel? Prompt para crearlo</div>
+            <div class="code-block" style="font-size:11px;padding:14px 18px">Quiero un panel de administración en /admin.
+Solo puede entrar un usuario con rol "admin";
+si no, redirigir al inicio.
+Ahí quiero ver una tabla con todos los
+<span class="ph">[PEDIDOS / PRODUCTOS / TURNOS]</span> guardados,
+con botones para crear, editar y eliminar cada uno.
+Antes de eliminar, pedir confirmación.</div>
+          </div>
+          <div>
+            <div class="prompt-label">📋 ¿Ya lo tienen? Prompt para sumar un rol</div>
+            <div class="code-block" style="font-size:11px;padding:14px 18px">Sumá un rol "empleado" que entre a /admin:
+puede ver los <span class="ph">[PRODUCTOS]</span> pero no editarlos,
+puede gestionar los <span class="ph">[PEDIDOS]</span>,
+y el módulo <span class="ph">[USUARIOS]</span> no le aparece.
+Validá los permisos también al guardar,
+no solo ocultando botones.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════
+       SLIDE 4 — TIP 1: Emails con Gmail
   ══════════════════════════ -->
   <div class="slide" data-index="3">
     <div class="top-bar">
       <a class="logo" href="../index.html">eCloud · Tecnoteca Rosario</a>
-      <span class="badge amber">Priorización</span>
+      <span class="badge amber">#Tips</span>
     </div>
-    <div class="slide-body" style="padding:26px 56px">
+    <div class="slide-body" style="padding:24px 56px">
       <div class="bloque-header">
-        <span class="bloque-tag" style="background:var(--accent-amber)">Bloque 4</span>
-        <span class="bloque-time">25 minutos</span>
+        <span class="bloque-tag" style="background:var(--accent-amber)">#Tips</span>
+        <span class="bloque-time">20 minutos</span>
       </div>
-      <h2 class="section-title" style="margin-bottom:10px">¿Qué hacemos <span style="color:var(--accent-amber)">primero</span>?</h2>
-      <div class="quote-block" style="margin-top:0;margin-bottom:14px;border-color:var(--accent-amber)">
-        <p style="font-size:13px">"Tienen tres funcionalidades pendientes y solo tiempo para una. ¿Cuál eligen y por qué?"</p>
-      </div>
+      <h2 class="section-title" style="margin-bottom:12px">Envío de emails con <span style="color:var(--accent-amber)">Gmail</span></h2>
       <div class="two-col" style="align-items:start;gap:20px">
-        <div class="matrix-wrap">
-          <div class="matrix-grid">
-            <div class="matrix-quad" style="border-color:rgba(62,207,142,0.3);background:rgba(62,207,142,0.06)">
-              <div class="mq-tag">✅ Hacerlo primero</div>
-              <div class="mq-label">Alto valor · Bajo esfuerzo</div>
-            </div>
-            <div class="matrix-quad" style="border-color:rgba(34,211,238,0.3);background:rgba(34,211,238,0.06)">
-              <div class="mq-tag">⏳ Planificar bien</div>
-              <div class="mq-label">Alto valor · Alto esfuerzo</div>
-            </div>
-            <div class="matrix-quad">
-              <div class="mq-tag" style="color:var(--text-secondary)">🤔 Sólo si sobra tiempo</div>
-              <div class="mq-label">Bajo valor · Bajo esfuerzo</div>
-            </div>
-            <div class="matrix-quad">
-              <div class="mq-tag" style="color:var(--text-muted)">❌ No hacerlo ahora</div>
-              <div class="mq-label">Bajo valor · Alto esfuerzo</div>
-            </div>
-          </div>
-          <div class="matrix-axis">Valor →</div>
-        </div>
         <div class="steps" style="gap:8px">
           <div class="step" style="padding:10px 14px">
             <div class="step-num" style="width:24px;height:24px;font-size:11px;border-radius:6px">1</div>
-            <div class="step-content"><strong>Listar sus 3 funcionalidades pendientes</strong></div>
+            <div class="step-content" style="display:block"><strong>Activar la verificación en 2 pasos</strong><span>En la cuenta de Google. Sin esto, el paso 2 no aparece.</span></div>
           </div>
           <div class="step" style="padding:10px 14px">
             <div class="step-num" style="width:24px;height:24px;font-size:11px;border-radius:6px">2</div>
-            <div class="step-content"><strong>Ubicarlas en la matriz según valor y esfuerzo</strong></div>
+            <div class="step-content" style="display:block"><strong>Crear una contraseña de aplicación</strong><span>En <strong style="display:inline;font-size:12px;color:var(--accent-amber)">myaccount.google.com/apppasswords</strong>. Se muestra una sola vez: copiala.</span></div>
           </div>
           <div class="step" style="padding:10px 14px">
             <div class="step-num" style="width:24px;height:24px;font-size:11px;border-radius:6px">3</div>
-            <div class="step-content"><strong>Elegir UNA para implementar en Clase 5</strong></div>
-          </div>
-          <div class="step" style="padding:10px 14px">
-            <div class="step-num" style="width:24px;height:24px;font-size:11px;border-radius:6px">4</div>
-            <div class="step-content"><strong>Justificar la decisión al resto del grupo</strong></div>
+            <div class="step-content" style="display:block"><strong>Cargarla como variable de entorno</strong><span>Cuando v0 la pida: GMAIL_USER y GMAIL_APP_PASSWORD. Nunca pegarla en el chat.</span></div>
           </div>
         </div>
+        <div>
+          <div class="prompt-label">📋 Prompt para v0</div>
+          <div class="code-block" style="font-size:11.5px">Cuando un usuario complete el formulario de contacto
+(o se registre), enviale un email de confirmación
+automático usando Gmail por SMTP con Nodemailer.
+Usá las variables de entorno GMAIL_USER
+y GMAIL_APP_PASSWORD.
+Que incluya mi logo, un mensaje breve
+y mis datos de contacto.</div>
+        </div>
+      </div>
+      <div class="meta-row" style="margin-top:14px">
+        <div class="meta-chip amber"><span>📧</span> Gratis y sin dominio propio: manda a cualquier casilla</div>
+        <div class="meta-chip amber"><span>⚠️</span> Usen una cuenta @gmail.com: en las de trabajo puede estar bloqueado</div>
       </div>
     </div>
   </div>
 
   <!-- ══════════════════════════
-       SLIDE 5 — CIERRE
+       SLIDE 5 — TIP 2: Archivos con Vercel Blob
   ══════════════════════════ -->
   <div class="slide" data-index="4">
+    <div class="top-bar">
+      <a class="logo" href="../index.html">eCloud · Tecnoteca Rosario</a>
+      <span class="badge teal">#Tips</span>
+    </div>
+    <div class="slide-body" style="padding:24px 56px">
+      <div class="bloque-header">
+        <span class="bloque-tag" style="background:var(--accent-teal)">#Tips</span>
+        <span class="bloque-time">20 minutos</span>
+      </div>
+      <h2 class="section-title" style="margin-bottom:12px">Carga de archivos con <span style="color:var(--accent-teal)">Vercel Blob</span></h2>
+      <div class="two-col" style="align-items:start;gap:20px">
+        <div class="steps" style="gap:8px">
+          <div class="step" style="padding:10px 14px">
+            <div class="step-num" style="width:24px;height:24px;font-size:11px;border-radius:6px">1</div>
+            <div class="step-content" style="display:block"><strong>Crear el Blob store</strong><span>En Vercel: tu proyecto → Storage → Blob.</span></div>
+          </div>
+          <div class="step" style="padding:10px 14px">
+            <div class="step-num" style="width:24px;height:24px;font-size:11px;border-radius:6px">2</div>
+            <div class="step-content" style="display:block"><strong>Conectarlo al proyecto</strong><span>Vercel crea solo la variable BLOB_READ_WRITE_TOKEN.</span></div>
+          </div>
+          <div class="step" style="padding:10px 14px">
+            <div class="step-num" style="width:24px;height:24px;font-size:11px;border-radius:6px">3</div>
+            <div class="step-content" style="display:block"><strong>Guardar solo el link</strong><span>El archivo vive en Blob; en Supabase se guarda su URL.</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="prompt-label">📋 Prompt para v0</div>
+          <div class="code-block" style="font-size:11.5px">En el panel /admin, al crear o editar un <span class="ph">[PRODUCTO]</span>,
+quiero poder subir una imagen desde la compu.
+Guardala en Vercel Blob y guardá su URL
+en la base de datos, junto al <span class="ph">[PRODUCTO]</span>.
+Mostrá la imagen en el catálogo.</div>
+        </div>
+      </div>
+      <div class="meta-row" style="margin-top:14px">
+        <div class="meta-chip"><span>🖼️</span> Sirve para fotos de productos, logos o comprobantes en PDF</div>
+        <div class="meta-chip"><span>⚠️</span> Si v0 propone otro servicio, pedile que use Vercel Blob</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════
+       SLIDE 6 — CIERRE
+  ══════════════════════════ -->
+  <div class="slide" data-index="5">
     <div class="top-bar">
       <a class="logo" href="../index.html">eCloud · Tecnoteca Rosario</a>
       <span class="badge">Cierre · 15 min</span>
@@ -559,16 +613,16 @@
     <div class="slide-body">
       <div class="bg-glow" style="width:400px;height:300px;background:rgba(62,207,142,0.05);bottom:-50px;right:-50px;"></div>
       <div class="eyebrow">Compartimos y cerramos</div>
-      <h2 class="section-title">Publicación actualizada con <span style="color:var(--accent-green)">base de datos funcionando</span></h2>
+      <h2 class="section-title">Ahora el producto tiene <span style="color:var(--accent-green)">control detrás de escena</span></h2>
       <ul class="bullet-list" style="margin-bottom:16px">
-        <li><span class="dot">◆</span><span>¿Qué fue lo más difícil de hoy?</span></li>
-        <li><span class="dot">◆</span><span>¿Qué decisión les costó más tomar?</span></li>
-        <li><span class="dot">◆</span><span>¿Qué funcionalidad eligieron para la Clase 5 y por qué?</span></li>
+        <li><span class="dot">◆</span><span>¿Los roles funcionan como esperaban?</span></li>
+        <li><span class="dot">◆</span><span>¿Qué módulo le falta al panel para que sea realmente útil?</span></li>
+        <li><span class="dot">◆</span><span>¿Probaron alguno de los tips? ¿Qué les costó?</span></li>
       </ul>
       <div class="divider"></div>
       <div class="card" style="border-color:rgba(62,207,142,0.2)">
-        <div class="card-title green">🚀 Clase 5 — Roles y Panel Administrador</div>
-        <p>Eligieron qué construir primero. En la próxima clase le damos <strong style="color:var(--text-primary)">roles a los usuarios y armamos el panel de administración.</strong></p>
+        <div class="card-title green">🚀 Clase 5 — De Producto Inicial a Producto Vivo</div>
+        <p>Medimos cómo se usa el producto y elegimos qué mejorar.</p>
       </div>
     </div>
   </div>
@@ -577,17 +631,18 @@
 
 <div id="thumbnails">
   <div class="thumb active-thumb" data-thumb="0">Portada</div>
-  <div class="thumb" data-thumb="1">Guardar datos</div>
-  <div class="thumb" data-thumb="2">CRUD</div>
-  <div class="thumb" data-thumb="3">Priorización</div>
-  <div class="thumb" data-thumb="4">Cierre</div>
+  <div class="thumb" data-thumb="1">CRUDL</div>
+  <div class="thumb" data-thumb="2">Roles y panel</div>
+  <div class="thumb" data-thumb="3">Tip: Emails</div>
+  <div class="thumb" data-thumb="4">Tip: Archivos</div>
+  <div class="thumb" data-thumb="5">Cierre</div>
 </div>
 
 <div class="kbd-hint">← → teclas de flecha · Barra espaciadora avanza · F para pantalla completa</div>
 
 <nav id="nav">
   <button id="prev-btn" disabled>←</button>
-  <span id="slide-counter">1 / 5</span>
+  <span id="slide-counter">1 / 6</span>
   <button id="next-btn">→</button>
   <span style="width:1px;height:16px;background:var(--border);margin:0 4px"></span>
   <button id="fullscreen-btn" title="Pantalla completa">⛶</button>

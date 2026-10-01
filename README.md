@@ -9,7 +9,7 @@ Este repo contiene los slide decks (HTML autocontenido, sin build) de cada clase
 1. [De la necesidad a la Idea](clases/clase-1.html)
 2. [De la Especificación al Diseño](clases/clase-2.html)
 3. [Base de datos y APIs](clases/clase-3.html)
-4. [Guardando Información](clases/clase-4.html)
+4. [Panel Admin & Tips](clases/clase-4.html)
 5. [Roles y Panel Administrador](clases/clase-5.html)
 6. [De Producto Inicial a Producto Vivo](clases/clase-6.html)
 7. [Demo Day (clases 7 y 8)](clases/clase-7.html)
@@ -94,19 +94,19 @@ Al finalizar el curso, vas a tener un producto funcional, publicado en internet,
 
 **Entregable:** Un producto conectado a una base de datos real, con un sistema de registro e inicio de sesión funcionando, primeras entidades creadas y al menos un CRUD básico implementado. Además, se deberá contar con una diferenciación inicial de usuarios (usuario y administrador) y un esqueleto de panel administrador listo para evolucionar en las siguientes clases.
 
-### Clase 4 - Persistencia, roles y panel administrador
+### Clase 4 - Panel Admin & Tips
 
-**Objetivo:** Profundizar en el manejo de datos persistentes, completando operaciones CRUD y construyendo un sistema de roles con un panel administrador funcional para gestionar la información de la aplicación.
+**Objetivo:** Completar la gestión de la información del producto con las operaciones CRUDL y un sistema de roles con panel administrador, y sumar dos integraciones prácticas: envío de emails y carga de archivos.
 
 **Temas principales:**
-- Profundización del modelo de datos y relaciones.
-- Ampliación de CRUD sobre entidades principales.
-- Validaciones y consistencia de datos.
-- Gestión de permisos según roles (usuario vs admin).
-- Construcción y evolución del panel administrador.
-- Priorización de funcionalidades.
+- Repaso de las operaciones CRUDL (crear, leer, actualizar, borrar y listar).
+- Roles y permisos: usuario, administrador y roles intermedios, con distintos permisos de edición y módulos visibles u ocultos.
+- Construcción y protección del panel administrador.
+- Nuevos módulos del panel sobre las entidades principales.
+- Tip: envío de emails con Gmail SMTP y contraseñas de aplicación.
+- Tip: carga de archivos con Vercel Blob.
 
-**Entregable:** Un producto con operaciones CRUD completas sobre las entidades principales, un sistema de usuarios con roles funcionando correctamente y un panel administrador funcional que permita visualizar y gestionar la información desde un dashboard con acciones básicas.
+**Entregable:** Para los grupos que todavía no lo tienen, un panel administrador funcional y protegido por rol. Los que ya lo tienen siguen sumando módulos de gestión al panel.
 
 ### Clase 5 - De Producto Inicial a Producto Vivo
 
