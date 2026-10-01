@@ -104,6 +104,7 @@
     margin-top: 48px; font-size: 12px; color: var(--text-muted); text-align: center;
   }
   footer a { color: var(--accent-teal); text-decoration: none; }
+  .kbd-hint { font-size: 11px; color: var(--text-muted); opacity: 0.6; margin-top: 8px; }
 </style>
 </head>
 <body>
@@ -163,8 +164,20 @@
 
   <footer>
     eCloud Agency × Vercel · <a href="https://github.com/gonzaaasanchez/tecnoteca-vibe-coding">Ver repositorio</a>
+    <div class="kbd-hint">F para pantalla completa</div>
   </footer>
 </div>
 
+<script>
+  document.addEventListener('keydown', e => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === 'f' || e.key === 'F') toggleFullscreen();
+  });
+
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(()=>{});
+    else document.exitFullscreen();
+  }
+</script>
 </body>
 </html>
