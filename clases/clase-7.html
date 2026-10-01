@@ -282,7 +282,7 @@
   .grid-4 .card:nth-child(4) { transition-delay:.5s; }
 
   /* ─── JOURNEY TIMELINE ─── */
-  .journey { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; width: 100%; }
+  .journey { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; width: 100%; }
   .journey-step {
     display: flex; align-items: center; gap: 12px;
     background: var(--bg-panel); border: 1px solid var(--border);
@@ -295,12 +295,13 @@
   .journey-step:nth-child(3) { transition-delay: .25s; }
   .journey-step:nth-child(4) { transition-delay: .3s; }
   .journey-step:nth-child(5) { transition-delay: .35s; }
-  .journey-step:nth-child(6) { transition-delay: .4s; border-color: rgba(62,207,142,0.35); background: rgba(62,207,142,0.07); }
+  .journey-step:nth-child(6) { transition-delay: .4s; }
+  .journey-step:nth-child(7) { transition-delay: .45s; grid-column: span 2; border-color: rgba(62,207,142,0.35); background: rgba(62,207,142,0.07); }
   .journey-num { font-size: 11px; font-weight: 800; color: var(--text-muted); flex-shrink: 0; width: 16px; }
   .journey-icon { font-size: 20px; flex-shrink: 0; }
   .journey-label { font-size: 13px; font-weight: 700; color: var(--text-primary); }
-  .journey-step:nth-child(6) .journey-label { color: var(--accent-green); }
-  .journey-step:nth-child(6) .journey-num { color: var(--accent-green); }
+  .journey-step:nth-child(7) .journey-label { color: var(--accent-green); }
+  .journey-step:nth-child(7) .journey-num { color: var(--accent-green); }
 
   /* ─── BULLET LIST ─── */
   .bullet-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
@@ -387,6 +388,7 @@
         <div class="journey-step"><span class="journey-num">3</span><span class="journey-icon">🗄️</span><span class="journey-label">Los datos</span></div>
         <div class="journey-step"><span class="journey-num">4</span><span class="journey-icon">🛡️</span><span class="journey-label">Roles y admin</span></div>
         <div class="journey-step"><span class="journey-num">5</span><span class="journey-icon">✨</span><span class="journey-label">El pulido</span></div>
+        <div class="journey-step"><span class="journey-num">6</span><span class="journey-icon">🎯</span><span class="journey-label">La preparación</span></div>
         <div class="journey-step"><span class="journey-num">HOY</span><span class="journey-icon">🚀</span><span class="journey-label">Demo Day</span></div>
       </div>
       <div class="quote-block">
@@ -419,12 +421,12 @@
         <div class="card">
           <div style="font-size:22px;margin-bottom:6px">🔗</div>
           <div class="card-title" style="margin-bottom:4px">Verificación técnica</div>
-          <p>Dominio propio activo, deploy en Vercel al día, base de datos con datos reales, Resend enviando emails, link probado desde celular.</p>
+          <p>Deploy en Vercel al día, base de datos con datos reales, emails y carga de archivos funcionando, link público probado desde celular.</p>
         </div>
         <div class="card">
           <div style="font-size:22px;margin-bottom:6px">🎤</div>
           <div class="card-title purple" style="margin-bottom:4px">Ensayo del guión</div>
-          <p>Repasar la estructura: problema → solución → demo → aprendizajes.</p>
+          <p>Repasar la estructura: problema → solución → demo → decisiones clave → próximos pasos.</p>
         </div>
         <div class="card">
           <div style="font-size:22px;margin-bottom:6px">🆘</div>
@@ -448,27 +450,27 @@
         <span class="bloque-tag" style="background:var(--accent-amber)">Bloque 2</span>
         <span class="bloque-time">50 minutos</span>
       </div>
-      <h2 class="section-title" style="margin-bottom:6px">Cada grupo: <span style="color:var(--accent-amber)">5 a 7 min</span> de presentación + 2 min de preguntas</h2>
+      <h2 class="section-title" style="margin-bottom:6px">Cada grupo: <span style="color:var(--accent-amber)">5 min</span> de presentación + 2 min de preguntas</h2>
       <div class="steps" style="gap:6px">
         <div class="step" style="padding:9px 16px">
           <div class="step-num" style="width:24px;height:24px;font-size:11px;border-radius:6px">1</div>
-          <div class="step-content"><strong>❓ El problema</strong><span>¿Qué problema tienen sus usuarios?</span></div>
+          <div class="step-content"><strong>❓ El problema</strong><span>¿Qué problema tienen sus usuarios?</span><div class="step-time">~1 min</div></div>
         </div>
         <div class="step" style="padding:9px 16px">
           <div class="step-num" style="width:24px;height:24px;font-size:11px;border-radius:6px">2</div>
-          <div class="step-content"><strong>💡 La solución</strong><span>¿Qué construyeron para resolverlo?</span></div>
+          <div class="step-content"><strong>💡 La solución</strong><span>¿Qué construyeron para resolverlo?</span><div class="step-time">~1 min</div></div>
         </div>
         <div class="step" style="padding:9px 16px">
           <div class="step-num" style="width:24px;height:24px;font-size:11px;border-radius:6px">3</div>
-          <div class="step-content"><strong>🖥️ Demo en vivo</strong><span>Mostrar el producto funcionando</span></div>
+          <div class="step-content"><strong>🖥️ Demo en vivo</strong><span>Mostrar el producto funcionando</span><div class="step-time">~2 min</div></div>
         </div>
         <div class="step" style="padding:9px 16px">
           <div class="step-num" style="width:24px;height:24px;font-size:11px;border-radius:6px">4</div>
-          <div class="step-content"><strong>🎯 Decisiones clave</strong><span>¿Qué eligieron y por qué?</span></div>
+          <div class="step-content"><strong>🎯 Decisiones clave</strong><span>¿Qué eligieron y por qué?</span><div class="step-time">~30 s</div></div>
         </div>
         <div class="step" style="padding:9px 16px">
           <div class="step-num" style="width:24px;height:24px;font-size:11px;border-radius:6px">5</div>
-          <div class="step-content"><strong>🔮 Próximos pasos</strong><span>¿Qué harían si siguieran?</span></div>
+          <div class="step-content"><strong>🔮 Próximos pasos</strong><span>¿Qué harían si siguieran?</span><div class="step-time">~30 s</div></div>
         </div>
       </div>
       <div class="meta-row" style="margin-top:12px">

@@ -10,8 +10,8 @@ Este repo contiene los slide decks (HTML autocontenido, sin build) de cada clase
 2. [De la Especificación al Diseño](clases/clase-2.html)
 3. [Base de datos y APIs](clases/clase-3.html)
 4. [Panel Admin & Tips](clases/clase-4.html)
-5. [Roles y Panel Administrador](clases/clase-5.html)
-6. [De Producto Inicial a Producto Vivo](clases/clase-6.html)
+5. [De Producto Inicial a Producto Vivo](clases/clase-5.html)
+6. [Pre Demo](clases/clase-6.html)
 7. [Demo Day (clases 7 y 8)](clases/clase-7.html)
 
 > Nota: el programa original divide el Demo Day en clases 7 y 8, pero ambas se cubren en un único slide deck (`clases/clase-7.html`).
@@ -110,34 +110,30 @@ Al finalizar el curso, vas a tener un producto funcional, publicado en internet,
 
 ### Clase 5 - De Producto Inicial a Producto Vivo
 
-**Objetivo:** Evolucionar el producto incorporando mejoras funcionales y de experiencia, completando el panel administrador e integrando envío de emails para habilitar flujos reales de uso.
+**Objetivo:** Evolucionar el producto a partir de datos reales de uso y feedback, priorizando qué mejorar e incorporando mejoras de experiencia, accesibilidad y rendimiento.
 
 **Temas principales:**
-- Análisis del uso del producto y recolección de feedback.
+- Análisis del uso del producto con Vercel Analytics.
+- Recolección de feedback de usuarios.
+- Cambios de requerimientos: cuándo decir que sí y cuándo negociar.
+- Priorización de funcionalidades (valor vs. esfuerzo).
 - Mejora de experiencia de usuario.
 - Accesibilidad y rendimiento.
-- Finalización del panel administrador.
-- Incorporación de nuevas funcionalidades al dashboard.
-- Introducción al envío de emails.
-- Integración de emails en flujos del producto.
-- Configuración de Resend.
 
-**Entregable:** Un producto con el panel administrador completo, funcionalidades mejoradas a partir del uso y feedback, y al menos un flujo de envío de emails funcionando correctamente dentro de la aplicación.
+**Entregable:** Una versión mejorada del producto, con al menos una mejora elegida a partir del uso y el feedback, y la decisión justificada.
 
 ### Clase 6 - Pre Demo
 
-**Objetivo:** Preparar el producto para su presentación final, dejándolo listo para producción, con dominio propio y configuración completa de despliegue.
+**Objetivo:** Preparar el producto para su presentación final, verificando que funcione completo en el link público y dejando armada la demo.
 
 **Temas principales:**
-- Chequeo general del producto.
-- Preparación para la demo.
-- Compra de dominio (Nic).
-- Configuración de dominio.
-- Despliegue en Vercel.
-- Configuración final de integraciones (Resend).
-- Chequeo general del producto.
+- Chequeo del producto en producción: link público y celular.
+- Variables de entorno e integraciones (Gmail, Vercel Blob).
+- Cómo se gestiona un dominio propio: compra (Nic) y configuración en Vercel.
+- Práctica: correcciones y carga de datos reales.
+- Estructura y ensayo de la demo.
 
-**Entregable:** Producto listo para producción, desplegado en internet con dominio propio, todas las integraciones funcionando y preparado para su presentación final.
+**Entregable:** Producto publicado en internet (link .vercel.app o dominio propio), con todas las integraciones funcionando y la demo preparada.
 
 ### Clases 7 y 8 - Demo Day: Presentación de producto listo
 

@@ -290,6 +290,21 @@
   /* ─── BG GLOW ─── */
   .bg-glow { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
 
+  /* ─── ANALOGY ROW ─── */
+  .analogy-row {
+    display: flex; align-items: center; gap: 12px; width: 100%;
+    opacity: 0; transform: translateY(12px); transition: all 0.5s 0.25s;
+  }
+  .slide.active .analogy-row { opacity: 1; transform: none; }
+  .analogy-box {
+    flex: 1; background: var(--bg-panel); border: 1px solid var(--border);
+    border-radius: 12px; padding: 16px 20px; text-align: center;
+  }
+  .analogy-box .icon { font-size: 28px; margin-bottom: 6px; }
+  .analogy-box .label { font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+  .analogy-box .desc { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+  .analogy-arrow { font-size: 20px; color: var(--accent-green); font-weight: 800; flex-shrink: 0; }
+
   /* ─── GRID 3 / GRID 4 ─── */
   .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; width: 100%; }
   .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; width: 100%; }
@@ -360,7 +375,6 @@
 <div id="progress-bar"></div>
 
 <div id="stage">
-
   <!-- ══════════════════════════
        SLIDE 1 — PORTADA
   ══════════════════════════ -->
@@ -371,235 +385,193 @@
     </div>
     <div class="slide-body" style="padding: 44px 60px;">
       <div class="bg-glow" style="width:500px;height:300px;background:rgba(62,207,142,0.06);top:-60px;left:-80px;"></div>
-      <div class="bg-glow" style="width:300px;height:250px;background:rgba(167,139,250,0.05);bottom:-40px;right:0;"></div>
+      <div class="bg-glow" style="width:300px;height:250px;background:rgba(34,211,238,0.05);bottom:-40px;right:0;"></div>
 
       <div class="eyebrow">Tecnoteca Rosario · Fase: Autonomía y Evolución</div>
-      <h1 class="title">De Producto Inicial<br><span class="highlight">a Producto Vivo</span></h1>
+      <h1 class="title">Pre <span class="highlight">Demo</span></h1>
       <div class="divider" style="width:80px;margin:20px 0;background:linear-gradient(90deg,var(--accent-green),transparent);opacity:1;"></div>
       <div class="meta-row">
         <div class="meta-chip"><span>📚</span> Clase 6</div>
         <div class="meta-chip"><span>⏱</span> 2 horas</div>
         <div class="meta-chip"><span>👥</span> Grupos de 4 a 5 personas</div>
         <div class="meta-chip"><span>💻</span> Una computadora por grupo</div>
-        <div class="meta-chip accent"><span>📈</span> <strong>Entregable: Versión mejorada del producto con decisiones justificadas</strong></div>
+        <div class="meta-chip accent"><span>🚀</span> <strong>Entregable: Producto publicado y listo para presentar</strong></div>
       </div>
     </div>
   </div>
 
   <!-- ══════════════════════════
-       SLIDE 2 — BLOQUE 1: Cómo está funcionando
+       SLIDE 2 — BLOQUE 1: Link público
   ══════════════════════════ -->
   <div class="slide" data-index="1">
     <div class="top-bar">
       <a class="logo" href="../index.html">eCloud · Tecnoteca Rosario</a>
-      <span class="badge">Clase 6</span>
+      <span class="badge teal">Producción</span>
     </div>
     <div class="slide-body">
       <div class="bloque-header">
-        <span class="bloque-tag">Bloque 1</span>
+        <span class="bloque-tag" style="background:var(--accent-teal)">Bloque 1</span>
         <span class="bloque-time">20 minutos</span>
       </div>
-      <h2 class="section-title" style="margin-bottom:10px">¿Cómo está funcionando <span style="color:var(--accent-green)">tu producto</span>?</h2>
-      <p class="subtitle" style="margin-bottom:16px"><strong style="color:var(--text-primary)">Vercel Analytics:</strong> miremos los datos reales de cada grupo.</p>
-      <div class="grid-4">
-        <div class="card" style="text-align:center">
-          <div style="font-size:24px;margin-bottom:6px">👥</div>
-          <div class="card-title" style="margin-bottom:4px">Visitas</div>
-          <p>¿Cuántas personas entraron? ¿Cuándo?</p>
+      <h2 class="section-title" style="margin-bottom:8px">¿Anda en el <span style="color:var(--accent-teal)">link público</span>?</h2>
+      <p class="subtitle" style="margin-bottom:14px">Que funcione en la preview de v0 no alcanza: el Demo Day se hace con el link publicado.</p>
+      <div class="steps" style="gap:8px">
+        <div class="step" style="padding:12px 16px">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>Abrir el link .vercel.app desde el celular</strong><span>El mismo link que van a compartir el día de la demo</span></div>
         </div>
-        <div class="card" style="text-align:center">
-          <div style="font-size:24px;margin-bottom:6px">⏱️</div>
-          <div class="card-title" style="margin-bottom:4px">Tiempo en pantalla</div>
-          <p>¿Cuánto tiempo pasan en la app?</p>
+        <div class="step" style="padding:12px 16px">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>Recorrer el flujo completo</strong><span>Registrarse, iniciar sesión, entrar al panel admin</span></div>
         </div>
-        <div class="card" style="text-align:center">
-          <div style="font-size:24px;margin-bottom:6px">📱</div>
-          <div class="card-title" style="margin-bottom:4px">Dispositivos</div>
-          <p>¿Entran más desde celular o computadora?</p>
+        <div class="step" style="padding:12px 16px">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>Probar las integraciones</strong><span>Que llegue un email (Gmail) y que se suba un archivo (Blob)</span></div>
         </div>
-        <div class="card" style="text-align:center">
-          <div style="font-size:24px;margin-bottom:6px">🌍</div>
-          <div class="card-title" style="margin-bottom:4px">Origen</div>
-          <p>¿De dónde vienen los visitantes?</p>
+        <div class="step" style="padding:12px 16px">
+          <div class="step-num">4</div>
+          <div class="step-content"><strong>Revisar las variables de entorno</strong><span>Vercel → Settings → Environment Variables. Si cambian alguna, hay que volver a publicar</span></div>
         </div>
       </div>
-      <div class="meta-row" style="margin-top:16px">
-        <div class="meta-chip accent"><span>💬</span> <strong>Feedback de usuarios:</strong> preguntarle a alguien que no conoce el producto</div>
+      <div class="meta-row" style="margin-top:14px">
+        <div class="meta-chip accent"><span>📝</span> Anoten todo lo que falle: es la lista de trabajo para la práctica</div>
       </div>
     </div>
   </div>
 
   <!-- ══════════════════════════
-       SLIDE 3 — BLOQUE 2: El cliente cambia todo
+       SLIDE 3 — BLOQUE 2: Dominio
   ══════════════════════════ -->
   <div class="slide" data-index="2">
     <div class="top-bar">
       <a class="logo" href="../index.html">eCloud · Tecnoteca Rosario</a>
-      <span class="badge purple">Role-play</span>
+      <span class="badge purple">Para saber</span>
     </div>
     <div class="slide-body">
       <div class="bloque-header">
         <span class="bloque-tag" style="background:var(--accent-purple)">Bloque 2</span>
-        <span class="bloque-time">25 minutos</span>
+        <span class="bloque-time">15 minutos</span>
       </div>
-      <h2 class="section-title" style="margin-bottom:10px">El cliente <span style="color:var(--accent-purple)">cambia todo</span></h2>
-      <p class="subtitle" style="margin-bottom:16px">El docente actúa como cliente y presenta cambios inesperados. Los grupos deben reaccionar.</p>
-      <div class="grid-4">
-        <div class="card" style="border-color:rgba(167,139,250,0.2)">
-          <div style="font-size:22px;margin-bottom:6px">📱</div>
-          <p style="font-style:italic">"Ahora necesito que funcione bien en celular"</p>
+      <h2 class="section-title" style="margin-bottom:8px">¿Cómo se gestiona un <span style="color:var(--accent-purple)">dominio</span>?</h2>
+      <p class="subtitle" style="margin-bottom:18px">Para el Demo Day alcanza con el link .vercel.app. Esto es para cuando el producto siga después del curso.</p>
+      <div class="analogy-row">
+        <div class="analogy-box">
+          <div class="icon">🛒</div>
+          <div class="label">Comprarlo</div>
+          <div class="desc">En nic.ar (los .ar) u otro registrador. Se paga por año.</div>
         </div>
-        <div class="card" style="border-color:rgba(167,139,250,0.2)">
-          <div style="font-size:22px;margin-bottom:6px">👤</div>
-          <p style="font-style:italic">"El usuario que me dijeron cambió — ahora son adultos mayores"</p>
+        <div class="analogy-arrow">→</div>
+        <div class="analogy-box">
+          <div class="icon">🔗</div>
+          <div class="label">Agregarlo en Vercel</div>
+          <div class="desc">Proyecto → Settings → Domains → Add</div>
         </div>
-        <div class="card" style="border-color:rgba(167,139,250,0.2)">
-          <div style="font-size:22px;margin-bottom:6px">⚡</div>
-          <p style="font-style:italic">"Necesito esta funcionalidad nueva antes de la demo"</p>
+        <div class="analogy-arrow">→</div>
+        <div class="analogy-box">
+          <div class="icon">🧭</div>
+          <div class="label">Configurar el DNS</div>
+          <div class="desc">Vercel indica qué cargar en el sitio donde lo compraron</div>
         </div>
-        <div class="card" style="border-color:rgba(167,139,250,0.2)">
-          <div style="font-size:22px;margin-bottom:6px">🎨</div>
-          <p style="font-style:italic">"El color no va con nuestra marca, cambialo todo"</p>
+        <div class="analogy-arrow">→</div>
+        <div class="analogy-box">
+          <div class="icon">🔒</div>
+          <div class="label">Listo</div>
+          <div class="desc">HTTPS automático. Puede tardar unas horas en activarse.</div>
         </div>
       </div>
       <div class="quote-block" style="border-color:var(--accent-purple)">
-        <p>La pregunta clave: ¿cuándo decir que sí y cuándo negociar?</p>
+        <p>Como vimos en la Clase 2: el dominio es la dirección de tu casa. Vercel es donde vive.</p>
       </div>
     </div>
   </div>
 
   <!-- ══════════════════════════
-       SLIDE 4 — BLOQUE 3: Panel administrador + Emails (NUEVO)
+       SLIDE 4 — BLOQUE 3: Práctica
   ══════════════════════════ -->
   <div class="slide" data-index="3">
     <div class="top-bar">
       <a class="logo" href="../index.html">eCloud · Tecnoteca Rosario</a>
-      <span class="badge teal">Panel + Emails</span>
+      <span class="badge">Práctica</span>
     </div>
-    <div class="slide-body" style="padding:28px 56px">
+    <div class="slide-body">
       <div class="bloque-header">
-        <span class="bloque-tag" style="background:var(--accent-teal)">Bloque 3</span>
-        <span class="bloque-time">30 minutos</span>
+        <span class="bloque-tag">Bloque 3</span>
+        <span class="bloque-time">45 minutos</span>
       </div>
-      <h2 class="section-title" style="margin-bottom:10px">Terminando el <span style="color:var(--accent-teal)">panel administrador</span></h2>
-      <p class="subtitle" style="margin-bottom:14px">El panel ya existe desde la Clase 5. Hoy lo completamos y sumamos comunicación automática por email.</p>
-      <div class="two-col" style="align-items:start;gap:20px">
+      <h2 class="section-title" style="margin-bottom:8px">Manos a la <span style="color:var(--accent-green)">obra</span></h2>
+      <p class="subtitle" style="margin-bottom:16px">Cada grupo trabaja sobre su lista. Primero lo roto, después lo lindo.</p>
+      <div class="grid-3">
         <div class="card">
-          <div class="card-title">🗂️ Nuevas funciones del dashboard</div>
-          <ul>
-            <li>Ver métricas básicas (visitas, pedidos, turnos)</li>
-            <li>Filtrar o exportar datos</li>
-            <li>Gestionar contenido sin tocar código</li>
-          </ul>
+          <div class="card-title green">🔧 Arreglar lo roto</div>
+          <p>Lo que falló en el link público. Solo lo que impide usar o entender el producto.</p>
         </div>
-        <div>
-          <div class="prompt-label">📋 Prompt para v0</div>
-          <div class="code-block" style="font-size:11.5px">Cuando un usuario complete el formulario de contacto
-(o se registre), enviale un email de confirmación
-automático usando Resend.
-Que incluya mi logo, un mensaje breve
-y mis datos de contacto.</div>
+        <div class="card">
+          <div class="card-title">🗄️ Datos reales</div>
+          <p>Reemplazar los datos de prueba por contenido real: productos, textos, imágenes.</p>
+        </div>
+        <div class="card">
+          <div class="card-title purple">👀 Mirada externa</div>
+          <p>Que alguien de otro grupo lo recorra sin ayuda. Donde se traba, hay algo para mejorar.</p>
         </div>
       </div>
-      <div class="meta-row" style="margin-top:14px">
-        <div class="meta-chip accent"><span>📧</span> Resend: gratis hasta 3.000 emails por mes, se conecta con v0 en minutos</div>
+      <div class="meta-row" style="margin-top:16px">
+        <div class="meta-chip"><span>👩‍🏫</span> El docente circula por los grupos ayudando a destrabar</div>
       </div>
     </div>
   </div>
 
   <!-- ══════════════════════════
-       SLIDE 5 — BLOQUE 4: Mejora guiada
+       SLIDE 5 — BLOQUE 4: Preparación para la demo
   ══════════════════════════ -->
   <div class="slide" data-index="4">
     <div class="top-bar">
       <a class="logo" href="../index.html">eCloud · Tecnoteca Rosario</a>
-      <span class="badge">Clase 6</span>
+      <span class="badge teal">Preparación</span>
     </div>
-    <div class="slide-body">
+    <div class="slide-body" style="padding:24px 56px">
       <div class="bloque-header">
-        <span class="bloque-tag">Bloque 4</span>
-        <span class="bloque-time">30 minutos</span>
+        <span class="bloque-tag" style="background:var(--accent-teal)">Bloque 4</span>
+        <span class="bloque-time">25 minutos</span>
       </div>
-      <h2 class="section-title" style="margin-bottom:8px">Mejora <span style="color:var(--accent-green)">guiada</span></h2>
-      <p class="subtitle" style="margin-bottom:16px">Cada grupo trabaja en su producto según el plan de la Clase 4 y lo construido en la Clase 5.</p>
-      <div class="grid-3">
-        <div class="card">
-          <div class="card-title green">🧭 Experiencia de usuario</div>
-          <ul>
-            <li>Flujo más claro y lógico</li>
-            <li>Mensajes que guíen al usuario</li>
-            <li>Textos que se entiendan fácil</li>
-          </ul>
+      <h2 class="section-title" style="margin-bottom:8px">Preparación para la <span style="color:var(--accent-teal)">demo</span></h2>
+      <p class="subtitle" style="margin-bottom:14px">Igual que en el Demo Day: 5 minutos + 2 de preguntas.</p>
+      <div class="steps" style="gap:8px">
+        <div class="step" style="padding:10px 16px">
+          <div class="step-num">1</div>
+          <div class="step-content"><strong>❓ El problema</strong><span>¿Qué problema tienen sus usuarios? ¿Por qué importa?</span><div class="step-time">~1 min</div></div>
         </div>
-        <div class="card">
-          <div class="card-title">⚡ Rendimiento básico</div>
-          <ul>
-            <li>Tiempo de carga razonable</li>
-            <li>Manejo de errores visible</li>
-            <li>Pantallas vacías con mensaje claro</li>
-          </ul>
+        <div class="step" style="padding:10px 16px">
+          <div class="step-num">2</div>
+          <div class="step-content"><strong>💡 La solución</strong><span>¿Qué construyeron para resolverlo?</span><div class="step-time">~1 min</div></div>
         </div>
-        <div class="card">
-          <div class="card-title purple">♿ Accesibilidad básica</div>
-          <ul>
-            <li>Contraste de colores suficiente</li>
-            <li>Tamaño de letra legible</li>
-            <li>Botones con labels claros</li>
-          </ul>
+        <div class="step" style="padding:10px 16px">
+          <div class="step-num">3</div>
+          <div class="step-content"><strong>🖥️ Demo en vivo</strong><span>Un recorrido ensayado, con datos reales</span><div class="step-time">~2 min</div></div>
+        </div>
+        <div class="step" style="padding:10px 16px">
+          <div class="step-num">4</div>
+          <div class="step-content"><strong>🎯 Decisiones clave</strong><span>¿Qué eligieron y por qué? ¿Qué dejaron afuera?</span><div class="step-time">~30 s</div></div>
+        </div>
+        <div class="step" style="padding:10px 16px">
+          <div class="step-num">5</div>
+          <div class="step-content"><strong>🔮 Próximos pasos</strong><span>¿Qué harían si siguieran?</span><div class="step-time">~30 s</div></div>
         </div>
       </div>
-      <div class="meta-row" style="margin-top:16px">
-        <div class="meta-chip"><span>👩‍🏫</span> El docente circula dando feedback grupal como "cliente"</div>
+      <div class="meta-row" style="margin-top:14px">
+        <div class="meta-chip accent"><span>🎤</span> Ensayen con otro grupo, con reloj</div>
+        <div class="meta-chip accent"><span>🙋</span> Repartan quién presenta cada parte</div>
+        <div class="meta-chip amber"><span>🛟</span> Plan B: capturas o video por si falla internet</div>
       </div>
     </div>
   </div>
 
   <!-- ══════════════════════════
-       SLIDE 6 — BLOQUE 5: Preparación para la demo
+       SLIDE 6 — CIERRE: Checklist pre-demo
   ══════════════════════════ -->
   <div class="slide" data-index="5">
     <div class="top-bar">
       <a class="logo" href="../index.html">eCloud · Tecnoteca Rosario</a>
-      <span class="badge teal">Preparación</span>
-    </div>
-    <div class="slide-body">
-      <div class="bloque-header">
-        <span class="bloque-tag" style="background:var(--accent-teal)">Bloque 5</span>
-        <span class="bloque-time">20 minutos</span>
-      </div>
-      <h2 class="section-title" style="margin-bottom:8px">Preparación para la <span style="color:var(--accent-teal)">demo</span></h2>
-      <p class="subtitle" style="margin-bottom:14px">Estructura sugerida para la presentación (máximo 5 minutos).</p>
-      <div class="steps" style="gap:8px">
-        <div class="step" style="padding:12px 16px">
-          <div class="step-num">1</div>
-          <div class="step-content"><strong>El problema</strong><span>¿Qué problema tiene el usuario? ¿Por qué importa?</span><div class="step-time">~1 min</div></div>
-        </div>
-        <div class="step" style="padding:12px 16px">
-          <div class="step-num">2</div>
-          <div class="step-content"><strong>La solución</strong><span>¿Qué construyeron? ¿Cómo lo resuelve?</span><div class="step-time">~1 min</div></div>
-        </div>
-        <div class="step" style="padding:12px 16px">
-          <div class="step-num">3</div>
-          <div class="step-content"><strong>Demo en vivo</strong><span>Mostrar el producto funcionando. Que la audiencia lo vea.</span><div class="step-time">~2 min</div></div>
-        </div>
-        <div class="step" style="padding:12px 16px">
-          <div class="step-num">4</div>
-          <div class="step-content"><strong>Aprendizajes</strong><span>¿Qué fue difícil? ¿Qué cambiarían? ¿Qué sigue?</span><div class="step-time">~1 min</div></div>
-        </div>
-      </div>
-      <div class="meta-row" style="margin-top:14px">
-        <div class="meta-chip accent"><span>🎤</span> Ensayo rápido entre grupos antes de terminar la clase</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════
-       SLIDE 7 — CIERRE: Checklist pre-demo
-  ══════════════════════════ -->
-  <div class="slide" data-index="6">
-    <div class="top-bar">
-      <a class="logo" href="../index.html">eCloud · Tecnoteca Rosario</a>
-      <span class="badge">Cierre · 10 min</span>
+      <span class="badge">Cierre · 15 min</span>
     </div>
     <div class="slide-body">
       <div class="bg-glow" style="width:400px;height:300px;background:rgba(62,207,142,0.05);bottom:-50px;right:-50px;"></div>
@@ -609,11 +581,11 @@ y mis datos de contacto.</div>
         <div class="checklist-item"><span class="ci-icon">✅</span><span class="ci-text">El proyecto está publicado y el link funciona</span></div>
         <div class="checklist-item"><span class="ci-icon">📱</span><span class="ci-text">La app funciona correctamente en celular</span></div>
         <div class="checklist-item"><span class="ci-icon">🗄️</span><span class="ci-text">La base de datos tiene datos reales, no de prueba</span></div>
-        <div class="checklist-item"><span class="ci-icon">📧</span><span class="ci-text">El envío de emails con Resend funciona correctamente</span></div>
+        <div class="checklist-item"><span class="ci-icon">📧</span><span class="ci-text">Los emails llegan y la carga de archivos funciona</span></div>
       </div>
       <div class="divider"></div>
       <div class="card" style="border-color:rgba(62,207,142,0.2)">
-        <div class="card-title green">🚀 Clase 7 — Demo Day</div>
+        <div class="card-title green">🚀 Clases 7 y 8 — Demo Day</div>
         <p>Presentan el producto construido a lo largo del curso.</p>
       </div>
     </div>
@@ -623,19 +595,18 @@ y mis datos de contacto.</div>
 
 <div id="thumbnails">
   <div class="thumb active-thumb" data-thumb="0">Portada</div>
-  <div class="thumb" data-thumb="1">Analytics</div>
-  <div class="thumb" data-thumb="2">Cliente cambia</div>
-  <div class="thumb" data-thumb="3">Panel + Emails</div>
-  <div class="thumb" data-thumb="4">Mejora guiada</div>
-  <div class="thumb" data-thumb="5">Prep. demo</div>
-  <div class="thumb" data-thumb="6">Checklist</div>
+  <div class="thumb" data-thumb="1">Link público</div>
+  <div class="thumb" data-thumb="2">Dominio</div>
+  <div class="thumb" data-thumb="3">Práctica</div>
+  <div class="thumb" data-thumb="4">Prep. demo</div>
+  <div class="thumb" data-thumb="5">Checklist</div>
 </div>
 
 <div class="kbd-hint">← → teclas de flecha · Barra espaciadora avanza · F para pantalla completa</div>
 
 <nav id="nav">
   <button id="prev-btn" disabled>←</button>
-  <span id="slide-counter">1 / 7</span>
+  <span id="slide-counter">1 / 6</span>
   <button id="next-btn">→</button>
   <span style="width:1px;height:16px;background:var(--border);margin:0 4px"></span>
   <button id="fullscreen-btn" title="Pantalla completa">⛶</button>
